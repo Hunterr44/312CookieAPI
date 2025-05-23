@@ -20,7 +20,7 @@ async def scrape(domain: str):
             browser = await p.chromium.launch(headless=True)
             context = await browser.new_context()
             page = await context.new_page()
-            await page.goto(url, timeout=10000)
+            await page.goto(url, timeout=100000)
             cookies = await context.cookies()
             await browser.close()
             return {"domain": domain, "cookies": cookies}
